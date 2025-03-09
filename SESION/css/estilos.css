@@ -1,0 +1,286 @@
+*{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+body{
+    background-image: url(../imagenes/SENA.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-attachment: fixed;
+}
+
+main{
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.contenedor__todo{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+    margin-top: 100px;
+}
+
+.caja__trasera{
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    background-color: rgba(47, 175, 8, 0.603);
+}
+
+.caja__trasera div{
+    margin: 100px 40px;
+    color: white;
+    transition: all 500ms;
+}
+
+.caja__trasera div p,
+.caja__trasera div button{
+    margin-top: 30px;
+}
+
+.caja__trasera div h3{
+    font-weight: 400;
+    font-size: 26px;
+}
+
+.caja__trasera button{
+    padding: 10px 40px;
+    border: 2px solid #fff ;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    transition: all 300ms;
+}
+
+.caja__trasera button:hover{
+    background: #fff;
+    color: #3e9e06 ;
+}
+
+
+
+
+.contenedor__login-register{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -185px;
+    left: 10px;
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.contenedor__login-register form{
+    width: 100%;
+    padding: 80px 20px;
+    background: #fff;
+    position: absolute;
+    border-radius: 20px;
+}
+
+.contenedor__login-register form h2{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.contenedor__login-register form input{
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background: #f2f2f2;
+    font-size: 16px;
+    outline: none;
+}
+
+.contenedor__login-register form button{
+    padding: 10px 40px;
+    margin-top: 40px;
+    border: none;
+    font-size: 14px;
+    background: #105503;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.contenedor__login-register_2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    top: 180px;
+    left: 170px;
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.contenedor__login-register_2 form{
+    width: 100%;
+    padding: 80px 20px;
+    background: #fff;
+    position: absolute;
+    border-radius: 20px;
+}
+
+.contenedor__login-register_2 form h2{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.contenedor__login-register_2 form input{
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background: #f2f2f2;
+    font-size: 16px;
+    outline: none;
+}
+
+.contenedor__login-register_2 form button{
+    padding: 10px 40px;
+    margin-top: 40px;
+    border: none;
+    font-size: 14px;
+    background: #105503;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.formulario__login{
+    opacity: 1;
+    display: block;
+}
+
+.formulario__register{
+    display: block;
+}
+
+.ingresar a {
+    display: inline-block;
+    background-color: #105503; 
+    color: #FFFFFF; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.ingresar a:hover {
+    background-color: #657586; 
+    transform: scale(1.05); 
+}
+
+.ingresar a:active {
+    background-color: #657586; 
+    transform: scale(0.95); 
+}
+
+@media screen and (max-width:850px){
+    main{
+        margin-top: 50px;
+    }
+    .caja__trasera{
+        max-width: 350px;
+        height: 300px;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .caja__trasera div{
+        margin: 0px;
+        position: absolute;
+    }
+
+    .contenedor__login-register{
+        top: -10px;
+        left: -5px;
+        margin: auto;
+    }
+    .contenedor__login-register form{
+        position: relative;
+    }
+}
+
+.ingresar { 
+    display: flex; 
+    justify-content: center; 
+    margin-top: 20px; 
+}
+
+.ingresa { 
+    display: flex; 
+    justify-content: center; 
+    margin-top: 400px; 
+    margin-left: -60px;
+}
+
+.notification {
+    display: none; 
+    background-color: #4CAF50; 
+    color: white;
+    padding: 15px;
+    text-align: center; 
+    position: fixed; 
+    width: 20%; 
+    top: 200; 
+    z-index: 1000; 
+    opacity: 1; 
+    transition: opacity 1s ease-in-out; 
+    border-radius: 20px;
+    margin-left: 1450px;
+}
+
+.notification.hide {
+    opacity: 0; 
+}
+
+ .ingresa a { 
+    display: inline-block;
+    background-color: #105503; 
+    color: #FFFFFF; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+ } 
+ 
+ .ingresa a:hover { 
+    background-color: #73808f;
+    transform: scale(1.05); 
+} 
+    
+ .ingresa a:active { 
+        background-color: #606d7c; 
+        transform: scale(0.95); 
+}
+

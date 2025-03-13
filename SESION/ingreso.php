@@ -39,12 +39,12 @@ if (isset($_SESSION['usuario'])) {
         <div class="contenedor__todo">
             <div class="caja__trasera">
                 <div class="caja__trasera-login">
-                    <h3>Ingresa como administrador</h3>
+                    <h3>Ingresar como administrador</h3>
                     <p>Inicia sesión </p>
                     <button id="btn__iniciar-sesión">Ingresar</button>
                 </div>
                 <div class="caja__trasera-register">
-                    <h3>Ingresa como Instructor</h3>
+                    <h3>Ingresar como Instructor</h3>
                     <p>Inicia sesión </p>
                     <button id="btn__registrarse">Ingresar</button>
                 </div>

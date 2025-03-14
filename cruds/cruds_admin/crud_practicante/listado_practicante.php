@@ -78,7 +78,6 @@ if ($varsesion == null || $varsesion = '') {
     <div class="table-container">
         <table id="practicanteTable" border="1">
             <tr>
-                <th>ID Practicante</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
                 <th>Tipo de Identificacion</th>
@@ -98,9 +97,9 @@ if ($varsesion == null || $varsesion = '') {
             include('./modelo_practicante.php');
             $practicantes = obtenerPracticantes();
             foreach ($practicantes as $practicante) {
+                $nombre_programa = obtenerNombrePrograma($practicante['ID_Programa']);
             ?>
                 <tr>
-                    <td><?= $practicante['ID_Practicante'] ?></td>
                     <td><?= $practicante['Nombre_Practicante'] ?></td>
                     <td><?= $practicante['Apellido_Practicante'] ?></td>
                     <td><?= $practicante['Tipo_Identificacion'] ?></td>
@@ -113,7 +112,7 @@ if ($varsesion == null || $varsesion = '') {
                     <td><?= $practicante['Correo_Sena'] ?></td>
                     <td><?= $practicante['Telefono'] ?></td>
                     <td><?= $practicante['ID_Practica'] ?></td>
-                    <td><?= $practicante['ID_Programa'] ?></td>
+                    <td><?= $nombre_programa ?></td>
 
                 </tr>
             <?php } ?>

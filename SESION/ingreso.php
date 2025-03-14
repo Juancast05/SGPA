@@ -52,7 +52,7 @@ if (isset($_SESSION['usuario'])) {
 
             <div class="contenedor__login-register">
                 <form action="./login_a.php" method="POST" class="formulario__login">
-                    <h2>Admin</h2>
+                    <h2>Administrador</h2>
                     <input type="email" placeholder="Correo Electrónico" name="correo_a" required>
                     <input type="password" placeholder="Contraseña" name="contrasena_a" required>
                     <br>

@@ -23,7 +23,7 @@ if ($varsesion == null || $varsesion = '') {
     rel="icon"
     href="img/icon/icono-removebg-preview.png"
     type="image/x-icon" />
-  <title>Admin</title>
+  <title>Administrador</title>
 </head>
 
 <body>
@@ -42,7 +42,7 @@ if ($varsesion == null || $varsesion = '') {
         <a href="#" data-slide="0">Practicantes</a>
         <ul class="dropdown-menu">
           <li>
-            <a href="../cruds/cruds_admin/crud_practicante/practicante.php">Gestión de practicantes</a>
+            <a href="../cruds/cruds_admin/crud_practicante/listado_practicante.php">Gestión de practicantes</a>
           </li>
         </ul>
       </li>
@@ -50,7 +50,7 @@ if ($varsesion == null || $varsesion = '') {
         <a href="#carrusel-item-2" data-slide="1">Fichas</a>
         <ul class="dropdown-menu">
           <li>
-            <a href="../cruds/cruds_admin/crud_fichas/ficha.php">Gestión de Fichas</a>
+            <a href="../cruds/cruds_admin/crud_fichas/listado_ficha.php">Gestión de Fichas</a>
           </li>
         </ul>
       </li>
@@ -59,7 +59,7 @@ if ($varsesion == null || $varsesion = '') {
         <ul class="dropdown-menu">
           <li>
             <a
-              href="../cruds/cruds_admin/crud_departamentomunicipio/departamento_municipio.php">Gestión de Departamentos y Municipios</a>
+              href="../cruds/cruds_admin/crud_departamentomunicipio/listado.php">Gestión de Departamentos y Municipios</a>
           </li>
         </ul>
       </li>
@@ -68,7 +68,7 @@ if ($varsesion == null || $varsesion = '') {
         <a href="#carrusel-item-4" data-slide="3">Programa</a>
         <ul class="dropdown-menu">
           <li>
-            <a href="../cruds/cruds_admin/crud_programa/programa.php">Gstión de Programas</a>
+            <a href="../cruds/cruds_admin/crud_programa/listado_programa.php">Gstión de Programas</a>
           </li>
         </ul>
       </li>
@@ -76,7 +76,7 @@ if ($varsesion == null || $varsesion = '') {
         <a href="#carrusel-item-5" data-slide="4">Empresa</a>
         <ul class="dropdown-menu">
           <li>
-            <a href="../cruds/cruds_admin/crud_empresa/empresa.php">Gestión de datos de empresas</a>
+            <a href="../cruds/cruds_admin/crud_empresa/listado_empresa.php">Gestión de datos de empresas</a>
           </li>
         </ul>
       </li>
@@ -84,7 +84,7 @@ if ($varsesion == null || $varsesion = '') {
         <a href="carrusel-item-6" data-slide="5">Practica</a>
         <ul class="dropdown-menu">
           <li>
-            <a href="../cruds/cruds_admin/crud_practica/practica.php">Gestión de Práctica</a>
+            <a href="../cruds/cruds_admin/crud_practica/listado_practica.php">Gestión de Práctica</a>
           </li>
         </ul>
       </li>
@@ -92,7 +92,7 @@ if ($varsesion == null || $varsesion = '') {
         <a href="carrusel-item-7" data-slide="6">Tipo de contrato</a>
         <ul class="dropdown-menu">
           <li>
-            <a href="../cruds/cruds_admin/crud_Tipocontrato/tipocontrato.php">Gestión sobre tipo de contrato</a>
+            <a href="../cruds/cruds_admin/crud_Tipocontrato/listado_tipocontrato.php">Gestión sobre tipo de contrato</a>
           </li>
         </ul>
       </li>
@@ -100,7 +100,7 @@ if ($varsesion == null || $varsesion = '') {
         <a href="carrusel-item-8" data-slide="7">Áreas</a>
         <ul class="dropdown-menu">
           <li>
-            <a href="../cruds/cruds_admin/crud_areas/area.php">Gestión sobre áreas de los aprendices</a>
+            <a href="../cruds/cruds_admin/crud_areas/listado_area.php">Gestión sobre áreas de los aprendices</a>
           </li>
         </ul>
       </li>
@@ -108,7 +108,7 @@ if ($varsesion == null || $varsesion = '') {
         <a href="carrusel-item-9" data-slide="8">Cargo</a>
         <ul class="dropdown-menu">
           <li>
-            <a href="../cruds/cruds_admin/crud_cargo/cargo.php">Gestión sobre cargos</a>
+            <a href="../cruds/cruds_admin/crud_cargo/listado_cargo.php">Gestión sobre cargos</a>
           </li>
         </ul>
       </li>
@@ -116,7 +116,7 @@ if ($varsesion == null || $varsesion = '') {
         <a href="carrusel-item-10" data-slide="9">Coformador</a>
         <ul class="dropdown-menu">
           <li>
-            <a href="../cruds/cruds_admin/crud_jefe/jefe.php">Gestión sobre coformador</a>
+            <a href="../cruds/cruds_admin/crud_jefe/listado_jefe.php">Gestión sobre coformador</a>
           </li>
         </ul>
       </li>

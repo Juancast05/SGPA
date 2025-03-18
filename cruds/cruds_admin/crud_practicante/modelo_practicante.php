@@ -26,16 +26,49 @@ function cerrarConexion()
     $conexion->close();
 }
 
+
+function obtenerNombrePrograma($id_programa) {
+    
+    global $conexion;
+    abrirConexion();
+   
+    $query = "SELECT Nombre_Programa FROM programas WHERE ID_Programa = ?";
+    $stmt = $conexion->prepare($query);
+    
+    if (!$stmt) {
+        die("Error en la preparación de la consulta: " . $conexion->error);
+    }
+
+    $stmt->bind_param("i", $id_programa);
+    $stmt->execute();
+    $stmt->bind_result($nombre_programa);
+    $stmt->fetch();
+
+    $stmt->close();
+    $conexion->close();
+
+    return $nombre_programa;
+}
+
 function RegistrarPracticante($Tipo_Identificacion, $Identificacion, $Nombre_Practicante, $Apellido_Practicante, $Fecha_Nacimiento, $Pais_Nacimiento, $Departamento_Nacimiento, $Ciudad_Nacimiento, $Correo_Personal, $Correo_Sena, $Telefono, $ID_Practica, $ID_Programa)
 {
     global $conexion;
     abrirConexion();
+
+    $checkQuery = "SELECT Identificacion FROM practicantes WHERE Identificacion = '$Identificacion'";
+    $resultado = $conexion->query($checkQuery);
+
+    if ($resultado->num_rows > 0) {
+        cerrarConexion();
+        return "Error: El practicante ya se encuentra registrado.";
+    }
+
     $query = "INSERT INTO practicantes (Tipo_Identificacion, Identificacion, Nombre_Practicante, Apellido_Practicante, Fecha_Nacimiento, Pais_Nacimiento, Departamento_Nacimiento, Ciudad_Nacimiento, Correo_Personal, Correo_Sena, Telefono, ID_Practica, ID_Programa)
     VALUES ('$Tipo_Identificacion', '$Identificacion', '$Nombre_Practicante', '$Apellido_Practicante', '$Fecha_Nacimiento', '$Pais_Nacimiento', '$Departamento_Nacimiento', '$Ciudad_Nacimiento', '$Correo_Personal', '$Correo_Sena', '$Telefono', '$ID_Practica', '$ID_Programa')";
 
     if ($conexion->query($query) === TRUE) {
         cerrarConexion();
-        return TRUE;
+        return "Registro Exitoso";
     } else {
         $error = "Hubo un error en la inserción: " . $conexion->error;
         cerrarConexion();

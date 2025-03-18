@@ -95,10 +95,9 @@ const ubicaciones = {
   },
 };
 
-// Función para cargar los departamentos según el país seleccionado
 function cargarDepartamentos() {
   const selectPais = document.getElementById("Pais_Nacimiento");
-  if (!selectPais) return; // Protección contra errores si no existe el elemento
+  if (!selectPais) return;
 
   const paisSeleccionado = selectPais.value;
   const selectDepartamentos = document.getElementById(
@@ -106,17 +105,14 @@ function cargarDepartamentos() {
   );
   const selectCiudades = document.getElementById("Ciudad_Nacimiento");
 
-  if (!selectDepartamentos || !selectCiudades) return; // Protección contra errores
+  if (!selectDepartamentos || !selectCiudades) return;
 
-  // Limpiar selects
   selectDepartamentos.innerHTML =
     '<option value="">Seleccione un departamento</option>';
   selectCiudades.innerHTML =
     '<option value="">Seleccione primero un departamento</option>';
 
-  // Si se seleccionó un país
   if (paisSeleccionado && ubicaciones[paisSeleccionado]) {
-    // Agregar departamentos del país seleccionado
     Object.keys(ubicaciones[paisSeleccionado]).forEach((departamento) => {
       const option = document.createElement("option");
       option.value = departamento;
@@ -124,7 +120,6 @@ function cargarDepartamentos() {
       selectDepartamentos.appendChild(option);
     });
   } else if (paisSeleccionado && !ubicaciones[paisSeleccionado]) {
-    // Si es un país que no está en nuestros datos
     const option = document.createElement("option");
     option.value = "Otro";
     option.textContent = "Otro";
@@ -132,28 +127,24 @@ function cargarDepartamentos() {
   }
 }
 
-// Función para cargar las ciudades según el departamento seleccionado
 function cargarCiudades() {
   const selectPais = document.getElementById("Pais_Nacimiento");
   const selectDepartamento = document.getElementById("Departamento_Nacimiento");
   const selectCiudades = document.getElementById("Ciudad_Nacimiento");
 
-  if (!selectPais || !selectDepartamento || !selectCiudades) return; // Protección contra errores
+  if (!selectPais || !selectDepartamento || !selectCiudades) return;
 
   const paisSeleccionado = selectPais.value;
   const departamentoSeleccionado = selectDepartamento.value;
 
-  // Limpiar select de ciudades
   selectCiudades.innerHTML = '<option value="">Seleccione una ciudad</option>';
 
-  // Si se seleccionó un departamento de un país en nuestros datos
   if (
     paisSeleccionado &&
     departamentoSeleccionado &&
     ubicaciones[paisSeleccionado] &&
     ubicaciones[paisSeleccionado][departamentoSeleccionado]
   ) {
-    // Agregar ciudades del departamento seleccionado
     ubicaciones[paisSeleccionado][departamentoSeleccionado].forEach(
       (ciudad) => {
         const option = document.createElement("option");
@@ -163,7 +154,6 @@ function cargarCiudades() {
       }
     );
   } else if (departamentoSeleccionado === "Otro") {
-    // Si es un departamento que no está en nuestros datos
     const option = document.createElement("option");
     option.value = "Otra";
     option.textContent = "Otra";
@@ -171,19 +161,15 @@ function cargarCiudades() {
   }
 }
 
-// Inicializar las funciones cuando el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM completamente cargado");
 
-  // Verificar y configurar los selectores de ubicación si existen
   const selectPais = document.getElementById("Pais_Nacimiento");
   if (selectPais) {
     console.log("Configurando eventos para selectores de ubicación");
 
-    // Añadir evento change al selector de país
     selectPais.addEventListener("change", cargarDepartamentos);
 
-    // Añadir evento change al selector de departamento
     const selectDepartamento = document.getElementById(
       "Departamento_Nacimiento"
     );
@@ -191,11 +177,9 @@ document.addEventListener("DOMContentLoaded", function () {
       selectDepartamento.addEventListener("change", cargarCiudades);
     }
 
-    // Si ya hay un país seleccionado (útil para edición)
     if (selectPais.value) {
       cargarDepartamentos();
 
-      // Si hay un departamento seleccionado
       if (selectDepartamento && selectDepartamento.value) {
         cargarCiudades();
       }
@@ -302,3 +286,76 @@ function buscarNombre() {
     }
   }
 }
+
+// Función para mostrar los detalles del practicante en un modal
+function mostrarDetalles(practicante, nombrePrograma) {
+  const modal = document.getElementById("detallesModal");
+  const detallesTable = document.getElementById("detallesTable");
+
+  // Crear la tabla de detalles
+  let detallesHTML = `
+        <tr><td>Nombres</td><td>${practicante.Nombre_Practicante}</td></tr>
+        <tr><td>Apellidos</td><td>${practicante.Apellido_Practicante}</td></tr>
+        <tr><td>Tipo de Identificación</td><td>${practicante.Tipo_Identificacion}</td></tr>
+        <tr><td>Identificación</td><td>${practicante.Identificacion}</td></tr>
+        <tr><td>Fecha de Nacimiento</td><td>${practicante.Fecha_Nacimiento}</td></tr>
+        <tr><td>País de Nacimiento</td><td>${practicante.Pais_Nacimiento}</td></tr>
+        <tr><td>Departamento de Nacimiento</td><td>${practicante.Departamento_Nacimiento}</td></tr>
+        <tr><td>Ciudad de Nacimiento</td><td>${practicante.Ciudad_Nacimiento}</td></tr>
+        <tr><td>Correo Personal</td><td>${practicante.Correo_Personal}</td></tr>
+        <tr><td>Correo Sena</td><td>${practicante.Correo_Sena}</td></tr>
+        <tr><td>Teléfono</td><td>${practicante.Telefono}</td></tr>
+        <tr><td>ID Práctica</td><td>${practicante.ID_Practica}</td></tr>
+        <tr><td>Programa</td><td>${nombrePrograma}</td></tr>
+      `;
+
+  detallesTable.innerHTML = detallesHTML;
+
+  // Mostrar el modal con una animación
+  modal.style.display = "block";
+
+  // Configurar los eventos de cierre del modal
+  configurarCierreModal();
+}
+
+// Configurar los eventos para cerrar el modal
+function configurarCierreModal() {
+  const modal = document.getElementById("detallesModal");
+  const closeButton = document.querySelector(".close-modal");
+  const cerrarBtn = document.getElementById("cerrarModal");
+
+  // Función para cerrar el modal con animación
+  function cerrarModal() {
+    modal.classList.add("fade-out");
+    setTimeout(() => {
+      modal.style.display = "none";
+      modal.classList.remove("fade-out");
+    }, 300); // 300ms es la duración de la animación
+  }
+
+  // Asignar eventos de cierre
+  closeButton.onclick = cerrarModal;
+  cerrarBtn.onclick = cerrarModal;
+
+  // Cerrar al hacer clic fuera del modal
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      cerrarModal();
+    }
+  };
+
+  // Cerrar con tecla ESC
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && modal.style.display === "block") {
+      cerrarModal();
+    }
+  });
+}
+
+// Ejecutar cuando el DOM esté completamente cargado
+document.addEventListener("DOMContentLoaded", function () {
+  // El código existente del DOMContentLoaded se mantiene...
+
+  // Añadir configuración para el modal
+  configurarCierreModal();
+});

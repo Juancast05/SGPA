@@ -289,15 +289,15 @@ input[type="number"]:focus::-webkit-inner-spin-button {
 }
 
 .table-container {
+  width: 80%;
   max-height: 750px;
   margin-top: 50px;
   margin-right: 1px;
-  overflow-y: scroll;
-  overflow-x: scroll;
+  margin-left: 300px;
 }
 
 table {
-  width: 30%;
+  width: 100%;
   border-collapse: collapse;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -331,10 +331,6 @@ th {
 
 tr:nth-child(even) {
   background-color: #f9f9f9;
-}
-
-tr:hover {
-  background-color: #f1f1f1;
 }
 
 td {
@@ -475,6 +471,21 @@ label {
 
 .form-input {
   width: 100%;
+}
+
+.selects {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+}
+
+.selects:focus {
+  border-color: #31aa12;
+  outline: none;
 }
 
 input[type="text"],

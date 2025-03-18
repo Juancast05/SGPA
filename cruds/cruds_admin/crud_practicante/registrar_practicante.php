@@ -87,7 +87,7 @@ if ($varsesion == null || $varsesion = '') {
                 </div>
                 <div class="form-input">
                     <label for="Tipo_Identificacion">Tipo de identificación:</label>
-                    <select name="Tipo_Identificacion" id="Tipo_Identificacion" required>
+                    <select class="selects" name="Tipo_Identificacion" id="Tipo_Identificacion" required>
                         <option value="">Seleccione un tipo</option>
                         <option value="CC">Cédula de Ciudadanía (CC)</option>
                         <option value="TI">Tarjeta de Identidad (TI)</option>
@@ -107,7 +107,7 @@ if ($varsesion == null || $varsesion = '') {
                 </div>
                 <div class="form-input">
                     <label for="Pais_Nacimiento">País de nacimiento:</label>
-                    <select name="Pais_Nacimiento" id="Pais_Nacimiento" required>
+                    <select class="selects" name="Pais_Nacimiento" id="Pais_Nacimiento" required>
                         <option value="">Seleccione un país</option>
                         <option value="Colombia">Colombia</option>
                         <option value="Venezuela">Venezuela</option>
@@ -125,13 +125,13 @@ if ($varsesion == null || $varsesion = '') {
                 </div>
                 <div class="form-input">
                     <label for="Departamento_Nacimiento">Departamento de nacimiento:</label>
-                    <select name="Departamento_Nacimiento" id="Departamento_Nacimiento" required>
+                    <select class="selects" name="Departamento_Nacimiento" id="Departamento_Nacimiento" required>
                         <option value="">Seleccione primero un país</option>
                     </select>
                 </div>
                 <div class="form-input">
                     <label for="Ciudad_Nacimiento">Ciudad de nacimiento:</label>
-                    <select name="Ciudad_Nacimiento" id="Ciudad_Nacimiento" required>
+                    <select class="selects" name="Ciudad_Nacimiento" id="Ciudad_Nacimiento" required>
                         <option value="">Seleccione primero un departamento</option>
                     </select>
                 </div>

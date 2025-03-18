@@ -80,17 +80,11 @@ if ($varsesion == null || $varsesion = '') {
             <tr>
                 <th>Nombres</th>
                 <th>Apellidos</th>
-                <th>Tipo de Identificacion</th>
-                <th>Identificacion</th>
-                <th>Fecha de Nacimiento</th>
-                <th>Pais de Nacimiento</th>
-                <th>Departamento de Nacimiento</th>
-                <th>Ciudad de Nacimiento</th>
-                <th>Correo Personal</th>
+                <th>Identificación</th>
                 <th>Correo Sena</th>
-                <th>Telefono</th>
-                <th>ID_Practica</th>
-                <th>ID_Programa</th>
+                <th>Teléfono</th>
+                <th>Programa</th>
+                <th>Acciones</th>
             </tr>
 
             <?php
@@ -102,23 +96,29 @@ if ($varsesion == null || $varsesion = '') {
                 <tr>
                     <td><?= $practicante['Nombre_Practicante'] ?></td>
                     <td><?= $practicante['Apellido_Practicante'] ?></td>
-                    <td><?= $practicante['Tipo_Identificacion'] ?></td>
                     <td><?= $practicante['Identificacion'] ?></td>
-                    <td><?= $practicante['Fecha_Nacimiento'] ?></td>
-                    <td><?= $practicante['Pais_Nacimiento'] ?></td>
-                    <td><?= $practicante['Departamento_Nacimiento'] ?></td>
-                    <td><?= $practicante['Ciudad_Nacimiento'] ?></td>
-                    <td><?= $practicante['Correo_Personal'] ?></td>
                     <td><?= $practicante['Correo_Sena'] ?></td>
                     <td><?= $practicante['Telefono'] ?></td>
-                    <td><?= $practicante['ID_Practica'] ?></td>
                     <td><?= $nombre_programa ?></td>
-
+                    <td>
+                        <button class="ver-mas-btn" onclick="mostrarDetalles(<?= htmlspecialchars(json_encode($practicante)) ?>, '<?= $nombre_programa ?>')">Ver más</button>
+                    </td>
                 </tr>
             <?php } ?>
         </table>
     </div>
 
+    <div id="detallesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Detalles del Practicante</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <table id="detallesTable" class="detalles-table">
+            </table>
+            <button id="cerrarModal" class="cerrar-btn">Cerrar</button>
+        </div>
+    </div>
 
     <script src="practicante.js"></script>
 </body>

@@ -75,20 +75,12 @@ if ($varsesion == null || $varsesion = '') {
     <div class="table-container">
         <table id="practicanteTable" border="1">
             <tr>
-                <th>ID Practicante</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
-                <th>Tipo de Identificacion</th>
                 <th>Identificacion</th>
-                <th>Fecha de Nacimiento</th>
-                <th>Pais de Nacimiento</th>
-                <th>Departamento de Nacimiento</th>
-                <th>Ciudad de Nacimiento</th>
-                <th>Correo Personal</th>
                 <th>Correo Sena</th>
                 <th>Telefono</th>
-                <th>ID_Practica</th>
-                <th>ID_Programa</th>
+                <th>Programa</th>
                 <th>Acciones</th>
             </tr>
 
@@ -96,22 +88,15 @@ if ($varsesion == null || $varsesion = '') {
             include('./modelo_practicante.php');
             $practicantes = obtenerPracticantes();
             foreach ($practicantes as $practicante) {
+                $nombre_programa = obtenerNombrePrograma($practicante['ID_Programa']);
             ?>
                 <tr>
-                    <td><?= $practicante['ID_Practicante'] ?></td>
                     <td><?= $practicante['Nombre_Practicante'] ?></td>
                     <td><?= $practicante['Apellido_Practicante'] ?></td>
-                    <td><?= $practicante['Tipo_Identificacion'] ?></td>
                     <td><?= $practicante['Identificacion'] ?></td>
-                    <td><?= $practicante['Fecha_Nacimiento'] ?></td>
-                    <td><?= $practicante['Pais_Nacimiento'] ?></td>
-                    <td><?= $practicante['Departamento_Nacimiento'] ?></td>
-                    <td><?= $practicante['Ciudad_Nacimiento'] ?></td>
-                    <td><?= $practicante['Correo_Personal'] ?></td>
                     <td><?= $practicante['Correo_Sena'] ?></td>
                     <td><?= $practicante['Telefono'] ?></td>
-                    <td><?= $practicante['ID_Practica'] ?></td>
-                    <td><?= $practicante['ID_Programa'] ?></td>
+                    <td><?= $nombre_programa ?></td>
                     <td>
 
                         <div class="botones-acciones">

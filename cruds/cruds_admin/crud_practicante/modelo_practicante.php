@@ -54,12 +54,21 @@ function RegistrarPracticante($Tipo_Identificacion, $Identificacion, $Nombre_Pra
 {
     global $conexion;
     abrirConexion();
+
+    $checkQuery = "SELECT Identificacion FROM practicantes WHERE Identificacion = '$Identificacion'";
+    $resultado = $conexion->query($checkQuery);
+
+    if ($resultado->num_rows > 0) {
+        cerrarConexion();
+        return "Error: El practicante ya se encuentra registrado.";
+    }
+
     $query = "INSERT INTO practicantes (Tipo_Identificacion, Identificacion, Nombre_Practicante, Apellido_Practicante, Fecha_Nacimiento, Pais_Nacimiento, Departamento_Nacimiento, Ciudad_Nacimiento, Correo_Personal, Correo_Sena, Telefono, ID_Practica, ID_Programa)
     VALUES ('$Tipo_Identificacion', '$Identificacion', '$Nombre_Practicante', '$Apellido_Practicante', '$Fecha_Nacimiento', '$Pais_Nacimiento', '$Departamento_Nacimiento', '$Ciudad_Nacimiento', '$Correo_Personal', '$Correo_Sena', '$Telefono', '$ID_Practica', '$ID_Programa')";
 
     if ($conexion->query($query) === TRUE) {
         cerrarConexion();
-        return TRUE;
+        return "Registro Exitoso";
     } else {
         $error = "Hubo un error en la inserción: " . $conexion->error;
         cerrarConexion();

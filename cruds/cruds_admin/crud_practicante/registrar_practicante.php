@@ -87,7 +87,15 @@ if ($varsesion == null || $varsesion = '') {
                 </div>
                 <div class="form-input">
                     <label for="Tipo_Identificacion">Tipo de identificación:</label>
-                    <input type="text" name="Tipo_Identificacion" id="Tipo_Identificacion" required>
+                    <select name="Tipo_Identificacion" id="Tipo_Identificacion" required>
+                        <option value="">Seleccione un tipo</option>
+                        <option value="CC">Cédula de Ciudadanía (CC)</option>
+                        <option value="TI">Tarjeta de Identidad (TI)</option>
+                        <option value="CE">Cédula de Extranjería (CE)</option>
+                        <option value="PAS">Pasaporte</option>
+                        <option value="PEP">Permiso Especial de Permanencia (PEP)</option>
+                        <option value="PPT">Permiso por Protección Temporal (PPT)</option>
+                    </select>
                 </div>
                 <div class="form-input">
                     <label for="Identificacion">Identificación:</label>
@@ -99,15 +107,33 @@ if ($varsesion == null || $varsesion = '') {
                 </div>
                 <div class="form-input">
                     <label for="Pais_Nacimiento">País de nacimiento:</label>
-                    <input type="text" name="Pais_Nacimiento" id="Pais_Nacimiento" required>
+                    <select name="Pais_Nacimiento" id="Pais_Nacimiento" required>
+                        <option value="">Seleccione un país</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Venezuela">Venezuela</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Perú">Perú</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Panamá">Panamá</option>
+                        <option value="México">México</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Estados Unidos">Estados Unidos</option>
+                        <option value="España">España</option>
+                        <option value="Otro">Otro</option>
+                    </select>
                 </div>
                 <div class="form-input">
                     <label for="Departamento_Nacimiento">Departamento de nacimiento:</label>
-                    <input type="text" name="Departamento_Nacimiento" id="Departamento_Nacimiento" required>
+                    <select name="Departamento_Nacimiento" id="Departamento_Nacimiento" required>
+                        <option value="">Seleccione primero un país</option>
+                    </select>
                 </div>
                 <div class="form-input">
                     <label for="Ciudad_Nacimiento">Ciudad de nacimiento:</label>
-                    <input type="text" name="Ciudad_Nacimiento" id="Ciudad_Nacimiento" required>
+                    <select name="Ciudad_Nacimiento" id="Ciudad_Nacimiento" required>
+                        <option value="">Seleccione primero un departamento</option>
+                    </select>
                 </div>
                 <div class="form-input">
                     <label for="Correo_Personal">Correo:</label>

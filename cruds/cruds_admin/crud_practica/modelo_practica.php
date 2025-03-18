@@ -26,12 +26,12 @@ function cerrarConexion()
     $conexion->close();
 }
 
-function registrarPractica($Fecha_Inicio, $Fecha_Fin, $Fecha_Seguimiento, $Observaciones, $Continuidad)
+function registrarPractica($Fecha_Inicio, $Fecha_Fin, $Fecha_Seguimiento, $Observaciones, $Continuidad,$bitacora)
 {
     global $conexion;
     abrirConexion();
-    $query = "INSERT INTO practicas (Fecha_Inicio,Fecha_Fin,Fecha_Seguimiento,Observaciones,Continuidad)
-    VALUES ('$Fecha_Inicio','$Fecha_Fin','$Fecha_Seguimiento','$Observaciones','$Continuidad')";
+    $query = "INSERT INTO practicas (Fecha_Inicio,Fecha_Fin,Fecha_Seguimiento,Observaciones,Continuidad,bitacora)
+    VALUES ('$Fecha_Inicio','$Fecha_Fin','$Fecha_Seguimiento','$Observaciones','$Continuidad','$bitacora')";
 
     if ($conexion->query($query) === TRUE) {
         cerrarConexion();
@@ -43,11 +43,11 @@ function registrarPractica($Fecha_Inicio, $Fecha_Fin, $Fecha_Seguimiento, $Obser
     }
 }
 
-function actualizarPractica($ID_Practica, $Fecha_Inicio, $Fecha_Fin, $Fecha_Seguimiento, $Observaciones, $Continuidad)
+function actualizarPractica($ID_Practica, $Fecha_Inicio, $Fecha_Fin, $Fecha_Seguimiento, $Observaciones, $Continuidad, $bitacora)
 {
     global $conexion;
     abrirConexion();
-    $query = "UPDATE practicas SET Fecha_Inicio = '$Fecha_Inicio', Fecha_Fin = '$Fecha_Fin', Fecha_Seguimiento = '$Fecha_Seguimiento', Observaciones = '$Observaciones', Continuidad = '$Continuidad' WHERE ID_Practica = '$ID_Practica'";
+    $query = "UPDATE practicas SET Fecha_Inicio = '$Fecha_Inicio', Fecha_Fin = '$Fecha_Fin', Fecha_Seguimiento = '$Fecha_Seguimiento', Observaciones = '$Observaciones', Continuidad = '$Continuidad', bitacora = '$bitacora' WHERE ID_Practica = '$ID_Practica'";
 
     if ($conexion->query($query) === TRUE) {
         cerrarConexion();

@@ -120,6 +120,14 @@ if ($varsesion == null || $varsesion = '') {
           </li>
         </ul>
       </li>
+      <li class="nav-item dropdown">
+        <a href="#carrusel-item-4" data-slide="3">Bitácoras</a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="../CARGAS/views/index.php">Gstión de bitácoras</a>
+          </li>
+        </ul>
+      </li>
 
       <li class="nav-item logout">
         <a

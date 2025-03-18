@@ -51,6 +51,14 @@ if ($varsesion == null || $varsesion = '') {
                     <li><a href="../cruds/cruds_instr/crud_programa/listado_programa.php" >Buscar Programas</a></li>
                 </ul>
             </li>
+
+            <li class="nav-item dropdown">
+                <a href="#carrusel-item-3" data-slide="3">Bitácoras</a>
+                <ul class="dropdown-menu">
+                    <li><a href="../CARGAS/views/index.php" >Ver Bitácoras</a></li>
+                </ul>
+            </li>
+            
             <li class="nav-item logout">
                 <a href="logout.php" onclick="return confirm('¿Estás seguro de que quieres cerrar sesión?');">
                     <i class="bx bx-log-out"></i>

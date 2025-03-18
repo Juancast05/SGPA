@@ -62,6 +62,18 @@ if ($varsesion == null || $varsesion = '') {
     </nav>
 
     <div class="content">
+
+        <?php
+
+        if (isset($_GET['success'])) {
+            echo '<div class="registro-exitoso">Practicante registrado exitosamente.</div>';
+        }
+        
+        if (isset($_GET['error'])) {
+            echo '<div class="error-registro">' . htmlspecialchars($_GET['error']) . '</div>';
+        }
+        ?>
+
         <h1>Registrar Practicante</h1>
         <form action="./controlador_practicante.php" method="POST" onsubmit="return confirmarRegistrar();">
             <div class="form-group">

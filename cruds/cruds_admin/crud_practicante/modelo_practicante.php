@@ -60,7 +60,7 @@ function RegistrarPracticante($Tipo_Identificacion, $Identificacion, $Nombre_Pra
 
     if ($resultado->num_rows > 0) {
         cerrarConexion();
-        return "Error: El practicante ya se encuentra registrado.";
+        return "El practicante ya se encuentra registrado.";
     }
 
     $query = "INSERT INTO practicantes (Tipo_Identificacion, Identificacion, Nombre_Practicante, Apellido_Practicante, Fecha_Nacimiento, Pais_Nacimiento, Departamento_Nacimiento, Ciudad_Nacimiento, Correo_Personal, Correo_Sena, Telefono, ID_Practica, ID_Programa)

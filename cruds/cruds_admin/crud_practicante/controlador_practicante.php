@@ -33,11 +33,12 @@ if (isset($_POST['RegistrarPracticante'])) {
         $ID_Programa
     );
 
-    if ($resultado == TRUE) {
-        header('location: ./registrar_practicante.php');
+    if ($resultado === "Registro Exitoso") {
+        header('location: ./registrar_practicante.php?success=1');
     } else {
-        echo $resultado;
+        header('location: ./registrar_practicante.php?error=' . urlencode($resultado));
     }
+    exit;
 }
 
 if (isset($_POST['actualizarPracticante'])) {

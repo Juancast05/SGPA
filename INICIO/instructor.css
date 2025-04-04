@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    background-color: #d87d07;
+    background-color: #a9a7a7;
     width: 100%;
     display: flex;
     justify-content: center; 
@@ -34,7 +34,7 @@ body {
 }
 
 .logo img {
-    width: 100px;
+    width: 70px;
     margin-left: 15px;
 }
 

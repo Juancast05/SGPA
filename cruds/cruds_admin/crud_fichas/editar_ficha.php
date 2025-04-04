@@ -100,11 +100,11 @@ if ($varsesion == null || $varsesion = '') {
                         <div class="botones-acciones">
                             <form action="./controlador_ficha.php" method="POST" onsubmit="return confirmarEliminar();">
                                 <input type="hidden" name="ID_Ficha" value="<?= $ficha['ID_Ficha'] ?>">
-                                <input type="submit" name="eliminarFicha" value="Eliminar">
+                                <input type="submit" class="btn-editar" value="Eliminar">
                             </form>
                             <form action="./actualizar_ficha.php" method="POST" onsubmit="return confirmarActualizar();">
                                 <input type="hidden" name="ID_Ficha" value="<?= $ficha['ID_Ficha'] ?>">
-                                <a href="./actualizar.php"><input type="submit" value="Actualizar"></a>
+                                <a href="./actualizar.php"><input type="submit" class="btn-editar" value="Actualizar"></a>
                             </form>
                         </div>
                     </td>

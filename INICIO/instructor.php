@@ -25,7 +25,7 @@ if ($varsesion == null || $varsesion = '') {
     <nav class="container">
         <div class="logo">
             <h1>SGPA</h1>   
-            <img src="img/icon/th-removebg-preview.png" alt="">
+            <img src="img/logoSenaNaranja.png" alt="">
         </div>
     </nav>
 
@@ -73,7 +73,7 @@ if ($varsesion == null || $varsesion = '') {
                 <div class="carousel-content">
                  
                 </div>
-                <img src="img/areas.jpg" alt="Imagen 5" />
+                <img src="img/imagenverde.jpeg" alt="Imagen 5" />
               </div>
           <div class="carousel-item">
             <div class="carousel-content">

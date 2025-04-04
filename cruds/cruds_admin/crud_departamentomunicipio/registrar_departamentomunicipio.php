@@ -71,21 +71,27 @@ if ($varsesion == null || $varsesion = '') {
 
     <h1>Registrar Departamento y Municipio</h1>
 
-
     <form action="./controlador.php" method="POST" onsubmit="return confirmarRegistrar();">
         <div class="form-group">
             <div class="form-input">
-                <label for="departamento">Selecciona un Departamento donde se realizaran practicas:</label>
-                <select name="departamento" id="departamento" required>
+            <label for="departamento">Selecciona un Departamento donde se realizaran practicas:</label>
+            <select name="departamento" id="departamento" required>
                     <option value="antioquia">Antioquia</option>
-                    <option value="bogotá">Bogotá D.C.</option>
+                    <option value="cundinamarca">Cundinamarca</option>
+                    <option value="atlantico">Atlántico</option>
+                    <option value="santander">Santander</option>
+                    <option value="bolivar">Bolívar</option>
+                    <option value="narino">Nariño</option>
+                    <option value="boyaca">Boyacá</option>
+                    <option value="cauca">Cauca</option>
+                    <option value="cordoba">Córdoba</option>
                 </select>
             </div>
 
             <div class="form-input">
                 <label for="municipio">Selecciona un Municipio donde se realizaran practicas:</label>
-                <select name="municipio" id="municipio" required>
-
+                <select name="municipio" id="municipio" required disabled>
+                    <option value="">Seleccione primero un departamento</option>
                 </select>
             </div>
 

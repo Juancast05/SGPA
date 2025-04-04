@@ -1,147 +1,193 @@
-let listElements = document.querySelectorAll('.list_button--click');
+const municipiosPorDepartamento = {
+  antioquia: ["Medellín", "Bello", "Envigado", "Itagüí", "Rionegro"],
+  cundinamarca: ["Bogotá", "Soacha", "Zipaquirá", "Chía", "Facatativá"],
+  "Valle del Cauca": ["Cali", "Buenaventura", "Palmira", "Tuluá", "Yumbo"],
+  atlantico: [
+    "Barranquilla",
+    "Soledad",
+    "Malambo",
+    "Puerto Colombia",
+    "Sabanalarga",
+  ],
+  santander: [
+    "Bucaramanga",
+    "Floridablanca",
+    "Girón",
+    "Piedecuesta",
+    "Barrancabermeja",
+  ],
+  bolivar: [
+    "Cartagena",
+    "Magangué",
+    "Arjona",
+    "Turbaco",
+    "El Carmen de Bolívar",
+  ],
+  narino: ["Pasto", "Ipiales", "Tumaco", "Túquerres", "La Unión"],
+  boyaca: ["Tunja", "Duitama", "Sogamoso", "Chiquinquirá", "Paipa"],
+  cauca: [
+    "Popayán",
+    "Santander de Quilichao",
+    "Puerto Tejada",
+    "Patía",
+    "Miranda",
+  ],
+  cordoba: ["Montería", "Cereté", "Lorica", "Sahagún", "Planeta Rica"],
+};
 
-listElements.forEach(listElement =>{
-    listElement.addEventListener('click', ()=>{
-        
-        listElement.classList.toggle('arrow');
+// Función para actualizar los municipios según el departamento seleccionado
+function actualizarMunicipios() {
+  const departamentoSeleccionado =
+    document.getElementById("departamento").value;
+  const selectMunicipio = document.getElementById("municipio");
 
-        let height = 0;
-        let menu = listElement.nextElementSibling;
-        console.log()
-        if (menu.clientHeight == "0") {
-            height = menu.scrollHeight;
-        }
+  // Limpiar opciones actuales
+  selectMunicipio.innerHTML = "";
 
-        menu.style.height = `${height}px`;
+  console.log("Departamento seleccionado: ", departamentoSeleccionado);
+  console.log(
+    "Municipios disponibles: ",
+    municipiosPorDepartamento[departamentoSeleccionado]
+  );
 
-    })
-}); 
+  // Si no hay departamento seleccionado o no hay municipios para este departamento
+  if (
+    !departamentoSeleccionado ||
+    !municipiosPorDepartamento[departamentoSeleccionado]
+  ) {
+    // Opción por defecto
+    const opcionDefault = document.createElement("option");
+    opcionDefault.value = "";
+    opcionDefault.textContent = "Seleccione primero un departamento";
+    selectMunicipio.appendChild(opcionDefault);
 
-   //---------------------------------------------------------//
+    // Deshabilitar el select de municipios
+    selectMunicipio.disabled = true;
+    return;
+  }
 
-const images = document.querySelectorAll('.carousel-images img');
-    let currentIndex = 0;
-    const totalImages = images.length;
-    const imageDuration = 7000;  
-    const fadeDuration = 1000;   
+  // Habilitar el select de municipios
+  selectMunicipio.disabled = false;
 
-   
-    function changeImage() {
-        
-        images.forEach((image) => {
-            image.style.opacity = 0;
-        });
+  // Añadir municipios del departamento seleccionado
+  municipiosPorDepartamento[departamentoSeleccionado].forEach((municipio) => {
+    const opcion = document.createElement("option");
+    opcion.value = municipio.toLowerCase();
+    opcion.textContent = municipio;
+    selectMunicipio.appendChild(opcion);
+  });
+}
 
-     
-        images[currentIndex].style.opacity = 1;
+// Función para confirmar el registro
+function confirmarRegistrar() {
+  return confirm("¿Está seguro de registrar este departamento y municipio?");
+}
 
-        currentIndex = (currentIndex + 1) % totalImages;
-    }
+// Inicializar el selector de municipios cuando el DOM esté cargado
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM cargado completamente");
 
-    setInterval(changeImage, imageDuration);
+  // Toggle para el menú en dispositivos móviles
+  const toggleBtn = document.getElementById("toggleMenu");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", function () {
+      document.querySelector(".nav").classList.toggle("show");
+    });
+  }
 
-    changeImage();
+  const departamentoSelect = document.getElementById("departamento");
+  if (departamentoSelect) {
+    console.log("Selector de departamento encontrado");
+    // Agregar evento de cambio al selector de departamento
+    departamentoSelect.addEventListener("change", function () {
+      console.log("Cambio en selector de departamento detectado");
+      actualizarMunicipios();
+    });
 
-    //---------------------------------|------------------------//
+    // Inicializar municipios con el departamento seleccionado por defecto
+    actualizarMunicipios();
+  } else {
+    console.error("No se encontró el selector de departamento");
+  }
+});
+//---------------------------------------------------------//
 
+const images = document.querySelectorAll(".carousel-images img");
+let currentIndex = 0;
+const totalImages = images.length;
+const imageDuration = 7000;
+const fadeDuration = 1000;
+
+function changeImage() {
+  images.forEach((image) => {
+    image.style.opacity = 0;
+  });
+
+  images[currentIndex].style.opacity = 1;
+
+  currentIndex = (currentIndex + 1) % totalImages;
+}
+
+setInterval(changeImage, imageDuration);
+
+changeImage();
+
+//---------------------------------|------------------------//
 
 function confirmarEliminar() {
-    return confirm("¿Estás seguro de que deseas eliminar estos datos?");
+  return confirm("¿Estás seguro de que deseas eliminar estos datos?");
 }
 
 function confirmarActualizar() {
-    return confirm("¿Estás seguro de que deseas actualizar estos datos?");
+  return confirm("¿Estás seguro de que deseas actualizar estos datos?");
 }
 
 function confirmarRegistrar() {
-    return confirm("¿Estás seguro de que deseas registrar estos datos?");
+  return confirm("¿Estás seguro de que deseas registrar estos datos?");
 }
 
-     //---------------------------------|------------------------//
+//---------------------------------|------------------------//
 
-const toggleButton = document.getElementById('toggleMenu');
-const navMenu = document.querySelector('.nav');
+const toggleButton = document.getElementById("toggleMenu");
+const navMenu = document.querySelector(".nav");
 
-toggleButton.addEventListener('click', () => {
-    navMenu.classList.toggle('hidden'); 
+toggleButton.addEventListener("click", () => {
+  navMenu.classList.toggle("hidden");
 });
 
-let listElementss = document.querySelectorAll('.list_button--click');
+let listElementss = document.querySelectorAll(".list_button--click");
 
-listElementss.forEach(listElement => {
-    listElement.addEventListener('click', () => {
-        listElement.classList.toggle('arrow');
+listElementss.forEach((listElement) => {
+  listElement.addEventListener("click", () => {
+    listElement.classList.toggle("arrow");
 
-        let height = 0;
-        let menu = listElement.nextElementSibling;
+    let height = 0;
+    let menu = listElement.nextElementSibling;
 
-        if (menu.clientHeight === 0) {
-            height = menu.scrollHeight;
-        }
-
-        menu.style.height = `${height}px`;
-    });
-}); 
-
-    //---------------------------------|------------------------//
-
-    function buscarNombre() {
-        let input = document.getElementById('searchInput');
-        let filter = input.value.toLowerCase();
-        let table = document.getElementById('DepTable');
-        let rows = table.getElementsByTagName('tr');
-    
-       
-        for (let i = 1; i < rows.length; i++) {
-            let cells = rows[i].getElementsByTagName('td');
-            let departamento = cells[0].textContent.toLowerCase(); 
-    
-           
-            if (departamento.indexOf(filter) > -1) {
-                rows[i].style.display = ''; 
-            } else {
-                rows[i].style.display = 'none'; 
-            }
-        }
+    if (menu.clientHeight === 0) {
+      height = menu.scrollHeight;
     }
-    
 
-    //--------------------------------------------------------------------------//
+    menu.style.height = `${height}px`;
+  });
+});
 
-    document.getElementById('departamento').addEventListener('change', function() {
-        let departamento = this.value;
-        let municipioSelect = document.getElementById('municipio');
-    
-        
-        municipioSelect.innerHTML = '';
-    
-        let municipios = {};
-    
-        municipios['antioquia'] = [
-            "Abriaquí", "Acacías", "Anzá", "Arboletes", "Argelia", "Apartadó", "Barbosa", "Bello", "Berrío", "Betania",
-            "Cáceres", "Caldas", "Campamento", "Caramanta", "Carolina del Príncipe", "Caucasia", "Chigorodó", "Cisneros", 
-            "Concepción", "Concordia", "Dabeiba", "Donmatías", "Ebéjico", "El Bagre", "El Carmen de Viboral", "El Retiro", 
-            "Envigado", "Fredonia", "Giraldo", "Marinilla", "Rionegro", "Sonson", "Alejandría", "Guarne", "San Vicente Ferrer"
-        ];
-    
-        municipios['bogotá'] = [
-            "Usaquén", "Chapinero", "Santa Fé", "San Cristóbal", "Rafael Uribe Uribe", "Los Mártires", "Antonio Nariño", 
-            "Teusaquillo", "Fontibón", "La Candelaria", "Bosa", "Kennedy", "Cota", "Suba", "Tunjuelito", "Puente Aranda", 
-            "Sumapaz"
-        ];
-    
-     
-        municipios[departamento].forEach(function(municipio) {
-            let option = document.createElement('option');
-            option.value = municipio.toLowerCase().replace(/ /g, '_');
-            option.textContent = municipio;
-            municipioSelect.appendChild(option);
-        });
-    });
-    
-   
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('departamento').value = 'antioquia';
-        document.getElementById('departamento').dispatchEvent(new Event('change'));
-    });
-    
+//---------------------------------|------------------------//
+
+function buscarNombre() {
+  let input = document.getElementById("searchInput");
+  let filter = input.value.toLowerCase();
+  let table = document.getElementById("DepTable");
+  let rows = table.getElementsByTagName("tr");
+
+  for (let i = 1; i < rows.length; i++) {
+    let cells = rows[i].getElementsByTagName("td");
+    let departamento = cells[0].textContent.toLowerCase();
+
+    if (departamento.indexOf(filter) > -1) {
+      rows[i].style.display = "";
+    } else {
+      rows[i].style.display = "none";
+    }
+  }
+}

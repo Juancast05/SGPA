@@ -30,7 +30,7 @@ if ($varsesion == null || $varsesion = '') {
   <nav class="container">
     <div class="logo">
       <h1>SGPA</h1>
-      <img src="img/icon/th-removebg-preview.png" alt="" />
+      <img src="img/logoSenaNaranja.png" alt="" />
     </div>
   </nav>
   <div id="notification" class="notification">
@@ -121,7 +121,7 @@ if ($varsesion == null || $varsesion = '') {
         </ul>
       </li>
       <li class="nav-item dropdown">
-        <a href="#carrusel-item-4" data-slide="3">Bitácoras</a>
+        <a href="carrusel-item-10" data-slide="3">Bitácoras</a>
         <ul class="dropdown-menu">
           <li>
             <a href="../CARGAS/views/index.php">Gstión de bitácoras</a>
@@ -149,7 +149,7 @@ if ($varsesion == null || $varsesion = '') {
             Nacional de Aprendizaje Sena
           </p>
         </div>
-        <img src="img/img1.jpg" alt="Imagen 1" />
+        <img src="img/imagenverde.jpeg" alt="Imagen 1" />
       </div>
       <div class="carousel-item">
         <div class="carousel-content">
@@ -189,7 +189,7 @@ if ($varsesion == null || $varsesion = '') {
             Servicio Nacional de Aprendizaje Sena
           </p>
         </div>
-        <img src="img/areas.jpg" alt="Imagen 5" />
+        <img src="img/imagenverde.jpeg" alt="Imagen 5" />
       </div>
       <div class="carousel-item">
         <div class="carousel-content">
@@ -229,7 +229,7 @@ if ($varsesion == null || $varsesion = '') {
             practicas
           </p>
         </div>
-        <img src="img/SENA8.jpg" alt="Imagen 9" />
+        <img src="img/imagenverde2.jpg" alt="Imagen 9" />
       </div>
       <div class="carousel-item">
         <div class="carousel-content">
@@ -239,7 +239,7 @@ if ($varsesion == null || $varsesion = '') {
             nuestros practicantes en etapa practica
           </p>
         </div>
-        <img src="img/sena2.jpg" alt="Imagen 10" />
+        <img src="img/imagenverde.jpeg" alt="Imagen 10" />
       </div>
     </div>
   </div>

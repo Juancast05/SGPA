@@ -57,6 +57,7 @@ if (isset($_SESSION['usuario'])) {
                     <input type="password" placeholder="Contraseña" name="contrasena_a" required>
                     <br>
                     <button type="submit" name="btn">Ingresar</button>
+                    <a href="form_recuperacion.php">¿Olvidaste tu contraseña?</a>
                     <br><br>
                     <div class="error">Los datos ingresados son incorrectos</div>
                 </form>
